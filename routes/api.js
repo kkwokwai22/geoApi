@@ -28,3 +28,5 @@ router.delete('/animals/:id', function(req, res){
       type:'DELETE'
     })
 });
+
+module.exports = router;
