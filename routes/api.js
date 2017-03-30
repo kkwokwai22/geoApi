@@ -28,8 +28,10 @@ router.put('/animals/:id', function(req, res, next){
 
 // delete an animal from db
 router.delete('/animals/:id', function(req, res, next){
-    res.send({
-      type:'DELETE'
+    Animals.findByIdAndRemove({
+      _id: req.params.id
+    }).then(function(animals){
+      res.send(animals)
     })
 });
 
