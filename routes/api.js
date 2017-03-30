@@ -10,8 +10,11 @@ router.get('/animals', function(req, res){
 
 // add a new animal in db
 router.post('/animals', function(req, res){
+    console.log(req.body)
     res.send({
-      type:'POST'
+      type: 'POST',
+      name: req.body.name,
+      rank: req.body.rank
     })
 });
 
