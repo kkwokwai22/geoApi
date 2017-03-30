@@ -17,6 +17,6 @@ const AnimalSchema = new Schema({
   // add geo location
 })
 
-const Animal = mongoose.model("animal")
+const Animals = mongoose.model("animal", AnimalSchema);
 
-module.exports = Animal;
+module.exports = Animals;
