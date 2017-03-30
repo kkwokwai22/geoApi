@@ -21,8 +21,12 @@ router.post('/animals', function(req, res, next){
 
 // update an animals in db
 router.put('/animals/:id', function(req, res, next){
-    res.send({
-      type:'PUT'
+    Animals.findByIdAndUpdate({
+      _id: req.params.id
+    }, req.body).then(function(){
+        Animals.findOne({_id: req.params.id}).then(function(animals){
+        res.send('updated ' + animals);
+      })
     })
 });
 
@@ -31,7 +35,7 @@ router.delete('/animals/:id', function(req, res, next){
     Animals.findByIdAndRemove({
       _id: req.params.id
     }).then(function(animals){
-      res.send(animals)
+      res.send('deleted ' + animals.name)
     })
 });
 
